@@ -6,7 +6,7 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 16:32:29 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/20 17:00:18 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/20 21:20:14 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,3 @@ void	*ft_memset(void *dest, int c, size_t n)
 		*newdest++ = src;
 	return (dest);
 }
-

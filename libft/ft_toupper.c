@@ -6,13 +6,13 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:38:21 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/20 17:40:33 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:57:00 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_islower(int c)
+static int	ft_islower(int c)
 {
 	return (c >= 97 && c <= 122);
 }

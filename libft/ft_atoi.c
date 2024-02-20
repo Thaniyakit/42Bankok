@@ -6,13 +6,13 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 19:05:55 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/20 19:13:21 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:56:22 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isspace(char c)
+static int	ft_isspace(char c)
 {
 	if (c == ' ' || c == '\n' || c == '\t')
 		return (1);

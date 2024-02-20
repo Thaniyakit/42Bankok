@@ -6,13 +6,13 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:41:13 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/20 17:43:18 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:56:54 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isupper(int c)
+static int	ft_isupper(int c)
 {
 	return (c >= 'A' && c <= 'Z');
 }
