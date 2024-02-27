@@ -6,7 +6,7 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 23:36:08 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/26 23:36:08 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:43:18 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	if (fd < 0)
 		return ;
 	while (*s)

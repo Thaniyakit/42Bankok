@@ -6,7 +6,7 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 00:26:05 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/27 00:26:05 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:14:47 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
+	if (!lst)
+		return (lst);
 	while (lst->next != NULL)
 	{
 		lst = lst->next;

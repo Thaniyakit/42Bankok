@@ -6,7 +6,7 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 23:30:25 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/26 23:30:25 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:45:23 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	int	i;
 
+	if (!s)
+		return ;
 	i = 0;
 	while (s[i])
 	{

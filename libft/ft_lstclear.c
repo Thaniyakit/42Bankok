@@ -6,7 +6,7 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 00:34:38 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/27 00:34:38 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:58:58 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*ptr;
 
+	if (!lst || !del)
+		return ;
 	while (*lst != NULL)
 	{
 		ptr = (*lst)->next;

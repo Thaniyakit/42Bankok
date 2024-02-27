@@ -9,20 +9,36 @@ SOURCES	=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c \
 			ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c \
 			ft_tolower.c ft_toupper.c \
 
+BONUS	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+
 OBJS	=	$(SOURCES:.c=.o)
+
+OBJSBONUS	=	$(BONUS:.c=.o)
 
 CC	=	gcc
 RM	=	rm -f
 CFLAGS	=	-Wall -Wextra -Werror
 
 all:	$(NAME)
-$(NAME):	$(OBJS)
+$(NAME):	$(OBJS) 
+				$(CC) $(CFLAGS) -c $(SOURCES) -I ./
 				ar rcs $(NAME) $(OBJS)
+
+bonus:	$(OBJSBONUS)
+			$(CC) $(CFLAGS) -c $(BONUS) -I ./
+			ar rcs $(NAME) $(OBJSBONUS)
 clean:	
-		$(RM) $(OBJS)
+		$(RM) $(OBJS) $(OBJSBONUS)
+
 fclean:	clean
 			$(RM) $(NAME)
-re :
-		fclean $(NAME)
+
+re :	fclean $(NAME)
+		
 	
-.PHONY:		all clean fclean re 
+.PHONY:		all clean fclean re bonus
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SOURCES) $(BONUS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJSBONUS)

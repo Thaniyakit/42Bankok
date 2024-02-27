@@ -6,7 +6,7 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 00:32:02 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/27 00:32:02 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:56:35 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	del(lst->content);
+	if (!lst || !del)
+		return ;
+	if (lst -> content)
+		del(lst -> content);
 	free(lst);
 }

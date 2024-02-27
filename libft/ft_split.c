@@ -6,49 +6,54 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:45:47 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/26 17:45:47 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/27 18:06:02 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	count_word(char *s, char c)
+static	int	count_word(const char *s, char c)
 {
 	size_t	i;
 	size_t	num;
 
 	i = 0;
 	num = 0;
-	while (str[i])
+	while (s[i])
 	{
-		if (str[i] != c)
+		if (s[i] != c)
 		{
 			num++;
-			while (str[i] && str[i] != c)
+			while (s[i] && s[i] != c)
 				i++;
-			if (!str[i])
+			if (!s[i])
 				return (num);
 		}
+		else
+			i++;
 	}
 	return (num);
 }
 
-static int	newword(char *s, size_t start, size_t end, char c)
+static int	newword(char **str, int end, char c, const char *s)
 {
+	size_t	start;
+
+	start = end;
 	while (s[end] != c && s[end])
+	{
 		end++;
-	s = ft_substr(s, start, end - start);
+	}
+	*str = ft_substr(s, start, end - start);
 	return (end);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
-	size_t	start;
 	size_t	end;
 	size_t	num;
 
-	start = 0;
 	end = 0;
 	num = 0;
 	if (s == NULL)
@@ -58,13 +63,13 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (s[end])
 	{
-		if (str[end] != c)
+		if (s[end] != c)
 		{
-			start = end;
-			end = newword(str + num, start, end, c);
+			end = newword(&str[num], end, c, s);
 			num++;
 		}
-		end++;
+		else
+			end++;
 	}
 	str[num] = NULL;
 	return (str);

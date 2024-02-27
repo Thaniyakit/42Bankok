@@ -6,7 +6,7 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:45:29 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/26 17:45:29 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:41:58 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@ static int	countnum(long n)
 	size_t	i;
 
 	i = 1;
-	if (a < 0)
+	if (n < 0)
 	{
-		a *= -1;
+		n *= -1;
+		i++;
 	}
 	while (n >= 10)
 	{
-		n = n % 10;
+		n = n / 10;
 		i++;
 	}
 	return (i);
@@ -31,28 +32,28 @@ static int	countnum(long n)
 
 char	*ft_itoa(int n)
 {
-	size_t	num;
+	int		num;
 	long	a;
 	char	*s;
 
 	num = countnum(n);
+	s = malloc(sizeof(char) * (num + 1));
+	if (!s)
+		return (NULL);
+	s[num--] = '\0';
 	a = n;
 	if (a < 0)
 	{
 		a *= -1;
-		num++;
+		s[0] = '-';
 	}
-	s = malloc(sizeof(char *) * (num + 1));
-	if (!s)
-		return (NULL);
-	s[num] = '\0';
-	while (a >= 10)
+	if (a == 0)
+		s[0] = '0';
+	while (a > 0)
 	{
-		s[num - 1] = (a % 10) + '0';
+		s[num] = (a % 10) + '0';
 		a = a / 10;
 		num--;
 	}
-	if (n < 0)
-		s[0] = '-';
 	return (s);
 }

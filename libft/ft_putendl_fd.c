@@ -6,7 +6,7 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 23:38:22 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/26 23:38:22 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:43:41 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	if (fd < 0)
 		return ;
 	while (*s)

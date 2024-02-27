@@ -6,7 +6,7 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 19:05:55 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/20 20:56:22 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:06:25 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,24 @@ static int	ft_isspace(char c)
 
 int	ft_atoi(const char *str)
 {
-	long	nbr;
-	long	sign;
-	size_t	i;
+	long long	nbr;
+	long		sign;
+	size_t		i;
 
 	nbr = 0;
 	sign = 1;
 	i = 0;
 	while ((str[i] != '\0') && ft_isspace(str[i]))
 		i++;
-	if (str[i] == '-')
-		sign = -1;
-	if ((str[i] != '\0') && (str[i] >= '0') && (str[i] <= '9'))
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while ((str[i] != '\0') && (str[i] >= '0') && (str[i] <= '9'))
 	{
 		nbr = (nbr * 10) + (str[i] - '0');
-		if (nbr > 2147483647 && sign == 1)
-			return (-1);
-		if (nbr > 2147483648 && sign == -1)
-			return (0);
 		i++;
 	}
 	return (sign * nbr);

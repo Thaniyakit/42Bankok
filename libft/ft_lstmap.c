@@ -6,7 +6,7 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 00:39:59 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/27 00:39:59 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:12:51 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*))
 		cpy = ft_lstnew(f(lst->content));
 		if (!cpy)
 		{
-			ft_lstclear(&new, cpy);
+			ft_lstclear(&new, del);
 			return (NULL);
 		}
 		ft_lstadd_back(&new, cpy);

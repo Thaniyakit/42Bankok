@@ -6,7 +6,7 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:43:46 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/20 19:24:49 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:06:35 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ char	*ft_strchr(const char *s, int c)
 	{
 		if (s[i] == find)
 		{
-			return (s + i);
+			return ((char *)s + i);
 		}
 		i++;
 	}
 	if (s[i] == find)
-		return (s + i);
+		return ((char *)s + i);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:29:55 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/20 19:25:34 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:43:46 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,21 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	destlen;
 	size_t	srclen;
 
+	if (!dstsize)
+		return (ft_strlen(src));
 	destlen = ft_strlen(dst);
 	srclen = ft_strlen(src);
-	i = 0;
-	if (dstsize < destlen + 1)
+	i = destlen;
+	if (dstsize < destlen)
 		return (dstsize + srclen);
 	if (dstsize > destlen + 1)
 	{
-		while (src[i] != '\0' && destlen + 1 + i < dstsize)
+		while (src[i - destlen] != '\0' && i + 1 < dstsize)
 		{
-			dst[destlen + i] = src[i];
+			dst[i] = src[i - destlen];
 			i++;
 		}
 	}
-	dst[destlen + i] = '\0';
+	dst[i] = '\0';
 	return (destlen + srclen);
 }

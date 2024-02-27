@@ -6,29 +6,27 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 17:02:28 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/20 19:23:57 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:51:36 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, int c, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char	*temp;
 	unsigned char	*tempsrc;
 	size_t			i;
-	unsigned char	find;
 
 	i = 0;
-	temp = dest;
-	tempsrc = (unsigned char *) src;
-	find = c;
+	if (!dest && !src)
+		return (NULL);
+	temp = (unsigned char *)dest;
+	tempsrc = (unsigned char *)src;
 	while (i < n)
 	{
 		temp[i] = tempsrc[i];
-		if (tempsrc[i] == find)
-			return (dest + (i + 1));
 		i++;
 	}
-	return (0);
+	return (temp);
 }
