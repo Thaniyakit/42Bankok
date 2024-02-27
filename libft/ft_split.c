@@ -6,7 +6,7 @@
 /*   By: thakitwo <thakitwo@student.42bankok.co>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:45:47 by thakitwo          #+#    #+#             */
-/*   Updated: 2024/02/27 18:06:02 by thakitwo         ###   ########.fr       */
+/*   Updated: 2024/02/27 18:41:22 by thakitwo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,15 @@ static int	newword(char **str, int end, char c, const char *s)
 		end++;
 	}
 	*str = ft_substr(s, start, end - start);
+	if (!str)
+		return (-1);
 	return (end);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
-	size_t	end;
+	int		end;
 	size_t	num;
 
 	end = 0;
@@ -66,6 +68,8 @@ char	**ft_split(char const *s, char c)
 		if (s[end] != c)
 		{
 			end = newword(&str[num], end, c, s);
+			if (end == -1)
+				return (NULL);
 			num++;
 		}
 		else
